@@ -1,6 +1,6 @@
 body{
     background: linear-gradient(210deg, #565656, #ababab, #ffffff, #ababab);
-    color:#565656;
+    color:#ffffff;
 }
 
 img{
@@ -14,4 +14,179 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+}
+
+/*h1{
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+}*/
+
+.crab{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.city{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border-style: groove;
+    border-width: auto;
+    border-color: #ABABAB;
+    background:linear-gradient(300deg, #ABABAB, #e1e1e1, #f6f6f6, #c4c4c4, #e7e7e7)
+
+
+
+}
+
+p{
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.vodka{
+    width: 15%;
+    height: 18%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.bourbon{
+    width: 20%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+body{
+    background: linear-gradient(210deg, #565656, #ababab, #ffffff, #ababab);
+    color:#ffffff;
+
+    border: 50px;;
+    border-color:linear-gradient(135deg, #000000, #7e7e7e, #282828, #181818, #7e7e7e);
+    border-style: groove;
+    border-width: auto;
+    
+}
+
+img{
+    width: 350px;
+   
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+    text-shadow: #565656 1px 1px 1px;
+}
+
+.crab{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.city{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    border-style: groove;
+    border-width: auto;
+    border-color: #ABABAB;
+    background:linear-gradient(300deg, #ABABAB, #e1e1e1, #f6f6f6, #c4c4c4, #e7e7e7)
+
+
+
+}
+
+p{
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    text-shadow: #565656 1px 1px 1px;
+}
+
+.vodka{
+    width: 12%;
+    height: 18%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+   
+}
+
+.bourbon{
+    width: 20%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/*body{
+    border: 50px;;
+    border-color:linear-gradient(135deg, #000000, #7e7e7e, #282828, #181818, #7e7e7e);
+    border-style: groove;
+    border-width: auto;
+    
+}*/
+
+.sushi{
+    border: #7e7e7e solid 1px;
+    border-radius: 20px;
+    margin-top: 20px;
+
+    border-image-source: url(../src/images/greytextureimageforhead.jfif);
+    border-image-slice: 1;
+    border-image-width: 2px;
+    border-image-outset: 1;
+    border-image-repeat: round;
+    border-style: groove;
+    background: linear-gradient(135deg, #000000, #7e7e7e, #282828, #181818, #7e7e7e);
+    
+}
+
+.tacos{
+    border: #7e7e7e solid 1px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-image-source: url(../src/images/greytextureimageforhead.jfif);
+    border-image-slice: 1;
+    border-image-width: 2px;
+    border-image-outset: 1;
+    border-image-repeat: round;
+    border-style: groove;
+    background: linear-gradient(135deg, #000000, #7e7e7e, #282828, #181818, #7e7e7e);
 }
