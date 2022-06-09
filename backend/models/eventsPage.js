@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const foodSchema = new Schema({
+const eventSchema = new Schema({
     title: { type: String, required: true},
 description: { type: String, required: true},
 imageURL: { type: String, required: true }
 });
 
-const Food = mongoose.model('Foods', foodSchema);
+const Event = mongoose.model('Events', eventSchema);
 
-module.exports = Food;
+module.exports = Event;
