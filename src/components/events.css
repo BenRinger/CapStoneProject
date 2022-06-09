@@ -1,0 +1,152 @@
+body{
+    background-image: linear-gradient(270deg, #5e5d5d , #bdbdbd , #5e5d5d);
+}
+
+img{
+    max-width: 600px;
+    box-shadow: 5px 5px 10px;
+}
+
+div{
+    /* text-align: center; */
+}
+
+.head{
+    text-align: center;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+}
+
+.glass {   
+width: 600px;
+color:white;
+text-align: center;
+}
+
+ .first-txt {
+    position:relative;
+    top: 25px;
+    left: 200px;
+    width: 220px;
+    color:black;
+    text-align: center;
+
+
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.9px);
+-webkit-backdrop-filter: blur(4.9px);
+border: 1px solid rgba(255, 255, 255, 0.16);
+
+}
+
+.second-txt{
+    position: relative;
+    bottom: -150px;
+    left: 25px;
+    width: 550px;
+    color: black;
+
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.9px);
+-webkit-backdrop-filter: blur(4.9px);
+border: 1px solid rgba(255, 255, 255, 0.16);
+
+} 
+
+.alignT{
+    position: relative;
+    bottom: -117px;
+}
+
+
+  
+
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "c1 . c2"
+      "c3 . c4"
+      "c5 . c6";
+    margin: 40px;
+  }
+  
+  .c1 { grid-area: c1; }
+  
+  .c3 { grid-area: c3; }
+  
+  .c5 { grid-area: c5; }
+  
+  .c2 { grid-area: c2; }
+  
+  .c4 { grid-area: c4; }
+  
+  .c6 { grid-area: c6; }
+  
+
+
+
+
+
+
+
+  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+     background-color: transparent;
+     width: 600px;
+     height: 315px;
+     /* border: 1px solid #f1f1f1; */
+      perspective: 1000px; /*Remove this if you don't want the 3D effect */
+     margin: 10px;
+     
+    }
+    
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     transition: transform 0.8s;
+     transform-style: preserve-3d;
+    }
+    
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+     transform: rotateY(180deg);
+    }
+    
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     -webkit-backface-visibility: hidden; /* Safari */
+     backface-visibility: hidden;
+    }
+    
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+     background-color: #bbb;
+     color: black;
+    }
+    
+    /* Style the back side */
+    .flip-card-back {
+     background-image: url('./imgs/CincinnatiFlag_adobe_express.png');
+     color: black;
+     transform: rotateY(180deg);
+     box-shadow: 5px 5px 10px;
+    }

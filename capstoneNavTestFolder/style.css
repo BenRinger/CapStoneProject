@@ -1,10 +1,10 @@
-// delete the following line if no text is used
-// edit the line if you wanna use other fonts
+/* // delete the following line if no text is used
+// edit the line if you wanna use other fonts */
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300i');
 body {
 	background: #201c29;
 }
-// use only the available space inside the 400x400 frame
+/* // use only the available space inside the 400x400 frame */
 .frame {
   position: absolute;
   top: 50%;
@@ -57,7 +57,7 @@ body {
 }
 .boxes .box.one {
   background: linear-gradient(60deg, #282828, #565656, #9b9b9b, #ffffff);
-	.text {
+  .text {
 		margin-left: 1rem;
 	}
 }
