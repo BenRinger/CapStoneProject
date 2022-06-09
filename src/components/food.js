@@ -1,95 +1,80 @@
-import React, { Component } from "react";
-import "../index.css";
-import images from "../images";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';  
+import axios from 'axios';
 
-import someName from ''
+import Senate from './images/senatepublogo.png';
+import Belgium from './images/tasteofbelgiumlogo.png';
+import BakersOTR from './images/bakersfieldOTRlogo.jpg';
+import MontgoInn from './images/montgomeryinnlogo.png'; 
+import MtAdamsBarGrill from './images/mtadamsbarandgrilllogo.jfif';
+import SkyChi from './images/skylinechililogo.png';
+import Larosas from './images/larosaspizzalogo.png';
+import Frischs from './images/frichsbigboylogo.png';
+import BluAshCh from './images/blueashchililogo.png';
+import Turf from './images/turfclublogo.png';
+import Graeters from './images/graetersicecreamlogo.png';
 
-
-class Food extends Component {
-
-
-
-
-
-render() {
-  return (
-    <div>
-<div className="container city">
-        <img className="bourbon" src="../src/images/cutleryimage3.png" alt=""/>
-    </div>
-
-    <h1>Popular restaurants in Cincinnati </h1>
-    <p className="crab">When you visit Cincinnati don't walk run to try the delicious fare from these restaurants </p>
-
-
-    <h1 className="tacos"><strong>Dine in Restaurants</strong></h1>
-    <div className="container">
-        <div className="col-lg-8">
-            <p>Senate Pub</p>
-            <img className="sushi" src="../src/images/senatepublogo.png" alt=""/>
-        </div>
+const Food = props => (
+  <tr>
+    <td>{props.Food.title}</td>
+    <td>{props.Food.description}</td>
+    <td>{props.Food.imageURL}</td>
+    <td>
+      <Link to={"/edit/"+props.Food._id}>edit</Link> | <a href="#" onClick={() => { props.deleteFood(props.Food._id) }}>delete</a>
+    </td>
+  </tr>
+)
 
 
-        <div className="container">
-            <p>Taste of Belgium</p>
-            <img class="sushi" src="../src/images/tasteofbelgiumlogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Bakersfield OTR</p>
-            <img className="sushi" src="../src/images/bakersfieldOTRlogo.jpg" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Montgomery Inn</p>
-            <img className="sushi" src="../src/images/montgomeryinnlogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Mt.Adam's Bar and Grill</p>
-            <img className="sushi" src="../src/images/mtadamsbarandgrilllogo.jfif" alt=""/>
-        </div>
-    </div>
-
-    <h1 className="tacos"><strong> Casual</strong></h1>
-    <div className="container">
-        <div className="col-lg-8">
-            <p>Skyline Chili</p>
-            <img className="sushi" src="../src/images/skylinechililogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Larosa's Pizza</p>
-            <img className="sushi" src="../src/images/larosaspizzalogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Frisch's Big boy</p>
-            <img className="sushi" src="../src/images/frichsbigboylogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>Blue Ash Chili</p>
-            <img className="sushi" src="../src/images/blueashchililogo.png" alt=""/>
-        </div>
-
-        <div className="container ">
-            <p>Graeter's Ice cream</p>
-            <img className="sushi" src="../src/images/graetersicecreamlogo.png" alt=""/>
-        </div>
-
-        <div className="container">
-            <p>The Turf Club</p>
-            <img className="sushi" src='../src/images/turfclublogo.png' alt=""/>
-        </div>
-    </div>
-
-    <iframe src="https://my.atlistmaps.com/map/b026416f-080d-4b84-8317-c40e8cb416f1?share=true" allow="geolocation"
-        width="100%" height="400px" frameborder="0" scrolling="no" allowfullscreen></iframe>
-    </div>
-  )
-
+export default class FoodList extends Component {
+  constructor(props) {  
+    super(props); 
+    
+    this.deleteFood = this.deleteFood.bind(this); 
+    
+    this.state = {Food: []};  
+  }
+  componentDidMount() {
+    axios.get('http://localhost:5000/Food/')
+     .then(response => {
+       this.setState({ Food: response.data });
+     })
+     .catch((error) => {
+        console.log(error);
+     })
+  }
+  deleteFood(id) {  
+    axios.delete('http://localhost:5000/Food/'+id)  
+    .then(res => console.log(res.data)); 
+  
+    this.setState({  
+      Food: this.state.Food.filter(el => el._id !== id)  
+})  
 }
+FoodList() {
+  return this.state.Food.map(currentFood => {
+    return <Food Food={currentFood} deleteFood={thisdeleteFood} key={currentFood._id}/>;
+  })
 }
 
-export default Food;
+  render() {
+    return (
+      <div>
+      <h3>Restaurants and foods unique to Cincinnati</h3>
+      <table className="table">
+        <thead className="thead-light">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Logo</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          { this.FoodList() }
+        </tbody>
+      </table>
+    </div>
+    )
+  }
+}

@@ -5,17 +5,11 @@ const Schema = Mongoose.Schema;
 
 
 const lateNightBrewSchema = new Schema({
-    title: {
-        name: String,
-    },
-    snippet: {
-        type: String,
-        },
-        imageURL: {
-        type: String,
-        }
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+        imageURL: { type: String, required: true}
         });
 
-    const LateNightBrew = Mongoose.model('LateNightBrew', lateNightBrewSchema);
+    const LateNightBrew = Mongoose.model('LateNightBrews', lateNightBrewSchema);
 
     module.exports = LateNightBrew;

@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const lateNightBrewPlaces = require('./routes/lateNightBrewPlaces');
+const foodRouter = require('./routes/foodRoutes');
+const lateNightBrewRouter = require('./routes/lateBrewRoutes');
 
 require('dotenv').config();
 
@@ -11,30 +12,28 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//connect to mongodb
+const uri = process.env.dbURI;
+mongoose.connect(uri, { useNewUrlParser: true}
+    );
 
-        
-
-
-//connect to mogodb
-const dbURI = 'mongodb+srv://Martia:nchantedlily0785@capstone.2gv0g.mongodb.net/capstoneretryWrites=true&w=majority';
 const connection = mongoose.connection;
-
 connection.once('open', () => {
-    console.log('connected to mongoDB');})
-
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
+    console.log('connected to mongoDB');
+});
 
 
 
-// const lateNightBrewRouter = require('./routes/lateNightBrewPage');
+
+
+
+// const lateNightBrewRouter = require('./routes/lateNightBrews');
 // const foodRouter = require('./routes/foodRestaurant');
 // const lateNightBrewPlacesRouter = require('./routes/lateNightBrewPlaces');
 // const foodRestaurantRouter = require('./routes/foodRestaurant');
 
-// app.use('/lateNightBrew', lateNightBrewRouter);
-// app.use('/food', foodRouter);
+ app.use('/lateNightBrew', lateNightBrewRouter);
+ app.use('/food', foodRouter);
 
 
 
